@@ -1,48 +1,34 @@
-class WARRIOR():
-    def __init__(self, name, power, endurance, hair_color):
-        self.name = name
-        self.power = power
-        self.endurance = endurance
-        self.hair_color = hair_color
+# New Questions on Lessons:
+# Разберем задачу с простой учетной системой банка.
+
+class Account():
+    def __init__(self, id, balance=0):
+        self.id = id
+        self.balance = balance
 
 
-    def sleep(self):
-        #return f'{self.name} {self.power} {self.endurance} {self.hair_color}'
-        print(f'{self.name} лег спать')
-        self.endurance += 2
-
-    def eat(self):
-        #return f'{self.name} {self.power} {self.endurance} {self.hair_color}'
-        print(f'{self.name} ест')
-        self.power += 1
-
-    def hit(self):
-        #return f'{self.name} {self.power} {self.endurance} {self.hair_color}'
-        print(f'{self.name} ударил')
-        self.endurance -= 1
-
-    def wolk(self):
-        #return f'{self.name} {self.power} {self.endurance} {self.hair_color}'
-        print(f'{self.name} гуляет')
-        self.endurance -= 1
-
-    def info(self):
-        return f'{self.name} {self.power} {self.endurance} {self.hair_color}'
-        print(f'имя - {self.name}, сила - {self.power}, выносливость - {self.endurance}, цвет волос - {self.hair_color}')
+    def deposit(self, money):
+        self.balance += money
+        print(f'Вы успешно пополнили счет. Текущая сумма: {self.balance}')
 
 
-war1 = WARRIOR('Варвар', 100, 50, 'черный')
-war2 = WARRIOR('Викинг', 150, 100, 'седой')
+    def withdraw(self, money):
+        if self.balance < money:
+            print('Недостаточно средств.')
+        else:
+            self.balance -= money
+            print(f'Вы успешно сняли средства {money}. Текущая сумма: {self.balance}')
 
-print(war1.info())
-print(war2.info())
 
-war1.sleep()
-war2.eat()
-war1.hit()
-war2.wolk()
-war1.eat()
+    def get_balance(self):
+        print(f'Текущая сумма: {self.balance}')
 
-print(war1.info())
-print(war2.info())
 
+man = Account("1", 100)
+
+
+man.get_balance()
+man.withdraw(150)
+man.get_balance()
+man.deposit(200)
+man.get_balance()
