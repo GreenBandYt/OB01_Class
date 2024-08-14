@@ -46,3 +46,4 @@ war1.eat()
 print(war1.info())
 print(war2.info())
 
+# !!!   FOR LATEST CODING  !!!
